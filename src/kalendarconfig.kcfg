@@ -167,6 +167,10 @@ SPDX-License-Identifier: LGPL-2.0-or-later
             <label>Show all completed subtasks even if the parent task is incomplete</label>
             <default>true</default>
         </entry>
+        <entry name="dimmPastEvents" type="Bool">
+            <label>Make events from the past dimmer</label>
+            <default>false</default>
+        </entry>
     </group>
 </kcfg>
 

@@ -5,6 +5,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kalendar 1.0 as Kalendar
 import "labelutils.js" as LabelUtils
 
 Kirigami.ShadowedRectangle {
@@ -30,4 +31,18 @@ Kirigami.ShadowedRectangle {
 
     border.width: 1
     border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.2)
+
+    Rectangle {
+        id: incidenceDimmer
+
+        anchors.fill: parent;
+        color: root.isDark ? Qt.rgba(0.0, 0.0, 0.0, 0.5) : Qt.rgba(1.0, 1.0, 1.0, 0.5)
+        visible: {
+            if (!Kalendar.Config.dimmPastEvents) {
+                return false;
+            }
+            const now = new Date();
+            return modelData.endTime < now;
+        }
+    }
 }

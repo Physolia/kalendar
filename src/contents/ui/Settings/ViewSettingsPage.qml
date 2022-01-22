@@ -24,6 +24,14 @@ Kirigami.ScrollablePage {
                 Config.save();
             }
         }
+        Controls.CheckBox {
+            text: i18n("Dimm past events")
+            checked: Config.dimmPastEvents
+            onClicked: {
+                Config.dimmPastEvents = !Config.dimmPastEvents;
+                Config.save();
+            }
+        }
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
             Kirigami.FormData.label: i18n("Month View settings")
